@@ -12,17 +12,18 @@ constructor(props){
 
 render(){
       return(
-      <div>
+      <div className="search-bar">
           <br/><br/>
-          Enter your search criteria:
           <input type='text'
             value = {this.state.term}
-            onChange={event  => this.setState({...this.state, term: event.target.value})}/>
+            onChange={event => this.onInputChange(event.target.value)}/>
         </div>
         );
   }
 
-onInputChange(event){
+onInputChange(term){
+  this.setState({term});
+  this.props.onChangeSearchTerm(term);
 }
 }
 
